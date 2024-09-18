@@ -7,45 +7,45 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.aulafragments.Fragment.ContatosFragment;
-import com.example.aulafragments.Fragment.ConversasFragment;
+import com.example.aulafragments.Fragment.LojasFragment;
+import com.example.aulafragments.Fragment.ProdutosFragment;
 import com.example.aulafragments.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnConversas, btnContatos;
-    private ConversasFragment conversasFragment;
-    private ContatosFragment contatosFragment;
+    private Button btnProdutos, btnLojas;
+    private ProdutosFragment produtosFragment;
+    private LojasFragment lojasFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnConversas = findViewById(R.id.btnConversas);
-        btnContatos = findViewById(R.id.btnContatos);
+        btnProdutos = findViewById(R.id.btnProdutos);
+        btnLojas = findViewById(R.id.btnLojas);
 
-        conversasFragment = new ConversasFragment();
+        produtosFragment = new ProdutosFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameConteudo, conversasFragment);
+        transaction.add(R.id.frameConteudo, produtosFragment);
         transaction.commit();
 
-        btnContatos.setOnClickListener(new View.OnClickListener() {
+        btnLojas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contatosFragment = new ContatosFragment();
+                lojasFragment = new LojasFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudo, contatosFragment);
+                transaction.replace(R.id.frameConteudo, lojasFragment);
                 transaction.commit();
             }
         });
 
-        btnConversas.setOnClickListener(new View.OnClickListener() {
+        btnProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                conversasFragment = new ConversasFragment();
+                produtosFragment = new ProdutosFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudo, conversasFragment);
+                transaction.replace(R.id.frameConteudo, produtosFragment);
                 transaction.commit();
             }
         });

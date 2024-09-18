@@ -7,15 +7,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.aulafragments.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ConversasFragment#newInstance} factory method to
+ * Use the {@link LojasFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConversasFragment extends Fragment {
+public class LojasFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +29,10 @@ public class ConversasFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ConversasFragment() {
+    private ListView listLojas;
+    private String[] lojas = {"Loja São Paulo", "Loja Rio de Janeiro", "Loja Curitiba", "Loja Belo Horizonte", "Loja Porto Alegre"};
+
+    public LojasFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +42,11 @@ public class ConversasFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ConversasFragment.
+     * @return A new instance of fragment ContatosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ConversasFragment newInstance(String param1, String param2) {
-        ConversasFragment fragment = new ConversasFragment();
+    public static LojasFragment newInstance(String param1, String param2) {
+        LojasFragment fragment = new LojasFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +67,20 @@ public class ConversasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_conversas, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_lojas, container, false);
+
+        listLojas = view.findViewById(R.id.listLojas);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                container.getContext(),
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                lojas
+        );
+
+        listLojas.setAdapter(adapter);
+
+        return view;
     }
 }

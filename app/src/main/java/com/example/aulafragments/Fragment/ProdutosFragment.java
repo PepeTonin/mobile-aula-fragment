@@ -7,16 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.aulafragments.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ContatosFragment#newInstance} factory method to
+ * Use the {@link ProdutosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContatosFragment extends Fragment {
+public class ProdutosFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,10 +28,10 @@ public class ContatosFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TextView textContato;
+    private ListView listProdutos;
+    private String[] produtos = {"Geladeira", "Fogão", "Micro-ondas", "Máquina de Lavar", "Aspirador de Pó", "Liquidificador", "Batedeira", "Ferro de Passar", "Ventilador", "Cafeteira", "Arroz", "Feijão", "Macarrão", "Óleo de Soja", "Açúcar", "Sal", "Café", "Leite", "Farinha de Trigo", "Manteiga", "Geladeira", "Fogão", "Micro-ondas", "Máquina de Lavar", "Aspirador de Pó", "Liquidificador", "Batedeira", "Ferro de Passar", "Ventilador", "Cafeteira", "Panela", "Talheres", "Pratos", "Copos", "Toalha de Mesa"};
 
-
-    public ContatosFragment() {
+    public ProdutosFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +41,11 @@ public class ContatosFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ContatosFragment.
+     * @return A new instance of fragment ConversasFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ContatosFragment newInstance(String param1, String param2) {
-        ContatosFragment fragment = new ContatosFragment();
+    public static ProdutosFragment newInstance(String param1, String param2) {
+        ProdutosFragment fragment = new ProdutosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,12 +65,18 @@ public class ContatosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_produtos, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_contatos, container, false);
+        listProdutos = view.findViewById(R.id.listProdutos);
 
-        textContato = view.findViewById(R.id.textContatos);
-        textContato.setText("Contato alterado");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                container.getContext(),
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                produtos
+        );
+
+        listProdutos.setAdapter(adapter);
 
         return view;
     }

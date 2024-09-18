@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.ConversasFragment">
+    android:layout_margin="8dp"
+    tools:context=".Fragment.ProdutosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listProdutos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="conversas"
-        android:textSize="24sp" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>

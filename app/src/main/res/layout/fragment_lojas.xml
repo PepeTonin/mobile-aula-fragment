@@ -3,15 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.ContatosFragment">
+    android:layout_margin="8dp"
+    tools:context=".Fragment.LojasFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textContatos"
+    <ListView
+        android:id="@+id/listLojas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Contatos"
-        android:textSize="24sp" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>
